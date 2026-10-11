@@ -1,6 +1,6 @@
 import pytest
 
-from text_processing import clean_text, count_words
+from text_processing import clean_text, count_words, process_document
 
 
 def test_clean_text():
@@ -56,3 +56,11 @@ def test_count_words_with_list():
     with pytest.raises(TypeError):
         count_words(["hello","world"])
 
+def test_process_document():
+    result = process_document("  HellO LoLo ")
+
+    assert result == {
+                        "text":"hello lolo" ,
+                        "word_count":2,
+                      }
+    
