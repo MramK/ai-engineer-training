@@ -4,3 +4,4 @@ __pycache__/
 Errors.txt
 Read for me.txt
 interview questions.txt
+.pytest_cache/
