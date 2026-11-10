@@ -1,9 +1,13 @@
+import os
+
 from fastapi import FastAPI
 from pydantic import BaseModel, Field, field_validator
 from text_processing import count_words
 
 
 app = FastAPI()
+
+SERVICE_NAME = os.getenv("SERVICE_NAME","Text Processing API")
 
 class TextRequest(BaseModel):   
     #text: str
@@ -23,7 +27,7 @@ class TextRequest(BaseModel):
 
 @app.get("/")
 def home():
-    return {"message":"My first AI engineering API"}
+    return {"message":SERVICE_NAME}
 
 
 @app.post("/process")

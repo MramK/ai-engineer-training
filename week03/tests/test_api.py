@@ -42,3 +42,11 @@ def test_missing_field():
 
     assert response.status_code == 422
     assert "detail" in response.json()
+
+def test_home():
+    response = client.get("/")
+
+    assert response.status_code == 200
+    assert response.json() == {
+        "message":"Text Processing API"
+    }
