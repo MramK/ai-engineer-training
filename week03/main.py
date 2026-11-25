@@ -30,6 +30,11 @@ def home():
     return {"message":SERVICE_NAME}
 
 
+@app.get("/health")
+def health_check():
+    return {"status":"ok"}
+
+
 @app.post("/process")
 def process_text(request: TextRequest):
 #    word_count = len(request.text.split())
@@ -39,3 +44,4 @@ def process_text(request: TextRequest):
         "text":request.text,
         "word_count": word_count,
     }
+
